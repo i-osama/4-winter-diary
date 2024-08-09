@@ -3,6 +3,9 @@ import { SlLike } from "react-icons/sl";
 import { LiaCommentsSolid } from "react-icons/lia";
 import { FaPenNib } from "react-icons/fa6";
 
+import { Link } from 'react-router-dom'
+import ViewFullPost from './ViewFullPost';
+
 const PostItem = (props) => {
 
 
@@ -11,7 +14,7 @@ const PostItem = (props) => {
     const comments = ['414325423','1234534','42524341341','14134141','144441413']
 
 
-    let {title, description, imgUrl, newsUrl, author, date} = props;
+    let {postId, title, description, imgUrl, postUrl, author, date} = props;
     
     const edited_description = description ? description.slice(0, 88) : '';
   return (
@@ -37,7 +40,9 @@ const PostItem = (props) => {
             {comments.length?<p className="card-text"> <LiaCommentsSolid/> Total comments: <b> {comments.length} </b></p>:""}
           
               
-              <a href={newsUrl} target='_blank' className="btn btn-sm btn-dark">Read More</a>
+              {/* <Link to={postUrl} target='_blank' className="btn btn-sm btn-dark">Read More</Link> */}
+              <Link to={`/full-story/${postId}`} target='_blank' className="btn btn-sm btn-dark">Read More</Link>
+              {/* <Link to='/full-story' target='_blank' className="btn btn-sm btn-dark">Read More</Link> */}
             </div>
             
             

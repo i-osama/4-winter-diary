@@ -181,7 +181,7 @@ const Posts = (props) => {
 
         return <div className="col-md-4" key={element.url}>
           {/* <PostItem title={element.title} description={element.mainPost} imgUrl={element.imageUrl} newsUrl={element.url} date={element.publishedAt} author={element.author} */}
-          <PostItem title={element.title} description={element.mainPost} imgUrl={element.imageUrl} date={element.publishedAt} author={element.author} />
+          <PostItem postId= {element._id} title={element.title} description={element.mainPost} imgUrl={element.imageUrl} date={element.publishedAt} author={element.author} />
         </div>
 
 

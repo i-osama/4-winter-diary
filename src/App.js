@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import { BrowserRouter, Route, Routes } from "react-router-dom";  
 import Posts from './components/viewPosts/Posts';
 import { useState } from 'react';
+import ViewFullPost from './components/viewPosts/ViewFullPost';
 
 function App() {
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -35,6 +36,9 @@ function App() {
     <Route exact path='/travel' element={<Posts category = {"Travel"}/>}></Route>
     <Route exact path='/articles' element={<Posts category = {"Articles"}/>}></Route>
     <Route exact path='/life-experience' element={<Posts category = {"Life-experience"}/>}></Route>
+
+
+    <Route exact path='/full-story/:id' element={<ViewFullPost/>}></Route>
     </Routes>
 
    </BrowserRouter>
