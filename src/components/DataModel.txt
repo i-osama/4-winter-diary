@@ -1,0 +1,17 @@
+{
+    "status": "ok",
+    "totalResults": 37,
+    "articles": [
+        {
+            "_id": "1245695256",
+            "author": "CNBC",
+            "authorId":"41546454",
+            "title": "Stock futures fall after Wednesday's afternoon market slide: Live updates - CNBC",
+            "mainPost": "lorem",
+            "imageUrl": "https://news.google.com/rss/articles/CBMid0FVX3lxTE0weWFPSVZFYnZXbnllZTJ3bkNHZkpEZWFwdnRZdDg1by1qc05hWnFodkNhQkRUd2dhdnFndVQyZG5uZkx1OVRXVUlQbGJwSlZSTHJjM0cwb205d3lBZW9DV0dBbjJ5dmJFV0tXUllKa3RFNmJ5U1pB0gF8QVVfeXFMTXRnbFhISGtaSDhsLV9scXE2RHVoS0JFOUd6ZXBCSDBPVFNFdlVqZUxHdDIyM0VZMUU0RWQ1dXZEQ2J0NzAxMUJxNk5MU1J0V2hyOEY2WUd4RDdmVWpOZWVXT05OMUQ0dUdqb0FXT3pmX3RONUdxcDRIRldHNg?oc=5",
+            "publishedAt": "2024-08-08T00:01:00Z",
+        
+        },
+
+    ]
+}
