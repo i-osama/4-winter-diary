@@ -41,7 +41,7 @@ const PostItem = (props) => {
           
               
               {/* <Link to={postUrl} target='_blank' className="btn btn-sm btn-dark">Read More</Link> */}
-              <Link to={`/full-story/${postId}`} target='_blank' className="btn btn-sm btn-dark">Read More</Link>
+              <Link to={`/full-story/${postId}`} className="btn btn-sm btn-dark">Read More</Link>
               {/* <Link to='/full-story' target='_blank' className="btn btn-sm btn-dark">Read More</Link> */}
             </div>
             

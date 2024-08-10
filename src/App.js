@@ -38,7 +38,7 @@ function App() {
     <Route exact path='/life-experience' element={<Posts category = {"Life-experience"}/>}></Route>
 
 
-    <Route exact path='/full-story/:id' element={<ViewFullPost/>}></Route>
+    <Route exact path='/full-story/:postId' element={<ViewFullPost/>}></Route>
     </Routes>
 
    </BrowserRouter>
