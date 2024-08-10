@@ -77,25 +77,34 @@ const ViewFullPost = () => {
           </button>
         </div>
         {comments.map((comment, index) => (
-          <div key={index} className="mb-3">
-            <div className="card">
-              <div className="card-body">
-                <p className="card-text">{comment.text}</p>
-                <ReplySection
-                  commentIndex={index}
-                  handleReply={handleReply}
-                />
-                {comment.replies.map((reply, replyIndex) => (
-                  <div key={replyIndex} className="card mt-2">
-                    <div className="card-body">
-                      <p className="card-text">{reply}</p>
-                    </div>
-                  </div>
-                ))}
+  <div key={index} className="mb-3">
+    <div className="card">
+      <div className="card-body">
+        <div className="d-flex align-items-center mb-2">
+          <img src={comment.userImage} className="rounded-circle" alt="User" width="40" height="40" />
+          <h5 className="ml-2 mb-0">{comment.userName}</h5>
+        </div>
+        <p className="card-text">{comment.text}</p>
+        <ReplySection
+          commentIndex={index}
+          handleReply={handleReply}
+        />
+        {comment.replies.map((reply, replyIndex) => (
+          <div key={replyIndex} className="card mt-2">
+            <div className="card-body">
+              <div className="d-flex align-items-center mb-2">
+                <img src={reply.userImage} className="rounded-circle" alt="User" width="30" height="30" />
+                <h6 className="ml-2 mb-0">{reply.userName}</h6>
               </div>
+              <p className="card-text">{reply.text}</p>
             </div>
           </div>
         ))}
+      </div>
+    </div>
+  </div>
+))}
+
       </div>
     </div>
   );
