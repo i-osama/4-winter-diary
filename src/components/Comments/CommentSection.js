@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReplySection from './ReplySection';
 
 const CommentSection = () => {
     const [comments, setComments] = useState([]);
@@ -6,14 +7,14 @@ const CommentSection = () => {
 
     const handleComment = () => {
         if (commentText.trim()) {
-            setComments([...comments, { text: commentText, replies: [] }]);
+            setComments([...comments, { text: commentText, replies: [], userImage: 'https://www.sideshow.com/product-asset/400312', userName: 'Default User' }]);
             setCommentText('');
         }
     };
 
     const handleReply = (index, replyText) => {
         const newComments = [...comments];
-        newComments[index].replies.push(replyText);
+        newComments[index].replies.push({ text: replyText, userImage: 'https://th.bing.com/th/id/OIP.vjBfEj2bKCphjHJg0Tqg4AHaEK?rs=1&pid=ImgDetMain', userName: 'Default User' });
         setComments(newComments);
     };
 
@@ -38,7 +39,7 @@ const CommentSection = () => {
                         <div className="card">
                             <div className="card-body">
                                 <div className="d-flex align-items-center mb-2">
-                                    <img src={comment.userImage} className="rounded-circle" alt="User" width="40" height="40" />
+                                    <img src={comment.userImage?comment.userImage:"https://wallpapers.ispazio.net/wp-content/uploads/2022/09/ispazio-30.jpg"} className="rounded-circle" alt="User" width="40" height="40" />
                                     <h5 className="ml-2 mb-0">{comment.userName}</h5>
                                 </div>
                                 <p className="card-text">{comment.text}</p>
@@ -61,38 +62,9 @@ const CommentSection = () => {
                         </div>
                     </div>
                 ))}
-
             </div>
-
-        </div>
-    )
-}
-
-
-const ReplySection = ({ commentIndex, handleReply }) => {
-    const [replyText, setReplyText] = useState('');
-
-    const handleReplySubmit = () => {
-        if (replyText.trim()) {
-            handleReply(commentIndex, replyText);
-            setReplyText('');
-        }
-    };
-
-    return (
-        <div className="mt-2">
-            <textarea
-                className="form-control"
-                rows="2"
-                value={replyText}
-                onChange={(e) => setReplyText(e.target.value)}
-                placeholder="Reply to this comment"
-            ></textarea>
-            <button className="btn btn-secondary mt-2" onClick={handleReplySubmit}>
-                Reply
-            </button>
         </div>
     );
 };
 
-export default CommentSection
+export default CommentSection;

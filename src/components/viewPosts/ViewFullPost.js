@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FcLike } from "react-icons/fc";
-import CommentSection from './CommentSection';
+import CommentSection from '../Comments/CommentSection';
 
 const ViewFullPost = () => {
   const { postId } = useParams();
