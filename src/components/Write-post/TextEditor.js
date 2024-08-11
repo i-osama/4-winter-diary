@@ -69,9 +69,9 @@ const TextEditor = () => {
         <div>
           <button className="btn btn-outline-secondary mr-2" onClick={handleUndo}><FaUndo /></button>
           <button className="btn btn-outline-secondary mr-2" onClick={handleRedo}><FaRedo /></button>
-          <button className="btn btn-outline-secondary mr-2"><b>B</b></button>
-          <button className="btn btn-outline-secondary mr-2"><i>I</i></button>
-          <button className="btn btn-outline-secondary mr-2">A</button>
+          <span className="text-right mx-3">
+            <b> Total Words: {wordCount} | Total Characters: {charCount} </b>
+      </span>
           <input
             type="number"
             className="form-control d-inline-block mr-2"
@@ -138,9 +138,7 @@ const TextEditor = () => {
           </div>
         ))}
       </div>
-      <div className="text-right">
-        <p>Total Words: {wordCount} | Total Characters: {charCount}</p>
-      </div>
+   
     </div>
   );
 };
