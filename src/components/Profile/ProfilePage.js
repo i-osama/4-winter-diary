@@ -1,23 +1,29 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { SlUserFollowing } from "react-icons/sl";
+import { GiFountainPen } from "react-icons/gi";
+import { Link } from 'react-router-dom';
 
-const AdminProfile = () => {
+const ProfilePage = ({ isOwner }) => {
   const [view, setView] = useState('profile');
 
   const handleViewChange = (newView) => {
     setView(newView);
   };
+  // ------------------------------------------------
 
-// -------------------------------------------------------
-    const profile_url = "https://wallpapers.ispazio.net/wp-content/uploads/2022/09/ispazio-30.jpg";
-// -------------------------------------------------------
+    const tempUserId = '101010'
+    const tempVisitorId = '101010'
+    const tempProfileImg = "https://wallpapers.ispazio.net/wp-content/uploads/2022/09/ispazio-30.jpg";
+
+  // ------------------------------------------------
 
   return (
     <div className="container mt-5">
       <div className="card text-center">
         <div className="card-body">
           <img
-            src={profile_url}
+            src= {tempProfileImg}
             className="rounded-circle mb-3"
             alt="Profile"
             width="180"
@@ -39,6 +45,13 @@ const AdminProfile = () => {
               <p>789</p>
             </div>
           </div>
+          {!isOwner && (
+            <div className="mt-4">
+              {tempUserId!==tempVisitorId?<button className="btn btn-outline-dark mr-2"><SlUserFollowing /> Follow</button>:""}
+              {tempUserId===tempVisitorId? <Link to='/text-editor' className="btn btn-outline-dark mr-2"><GiFountainPen/> Write your thoughts</Link>:""}
+             
+            </div>
+          )}
         </div>
       </div>
 
@@ -51,4 +64,4 @@ const AdminProfile = () => {
   );
 };
 
-export default AdminProfile;
+export default ProfilePage;
