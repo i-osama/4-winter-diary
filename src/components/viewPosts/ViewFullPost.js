@@ -27,7 +27,7 @@ const ViewFullPost = () => {
     <div className="container mt-5">
       <div className="card">
         <div className="card-body">
-          <p className="card-title">{author ? author : "Unknown"}</p>
+          <p className="card-title">{author ? (<> <b>Author:</b>  {author} </>): (<><b>Author:</b> Unknown</>)}</p>
           <p className="card-subtitle mb-2 text-muted">{date}</p>
           {/* <h3 className="card-title">{title}</h3> */}
 

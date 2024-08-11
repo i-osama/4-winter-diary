@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { VscColorMode } from "react-icons/vsc";
+import { BsPersonCircle } from "react-icons/bs";
 
 const Navbar = () => {
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">Navbar</Link>
+                    <Link className="navbar-brand" to="/admin-profile"> <BsPersonCircle/> </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -40,7 +41,7 @@ const Navbar = () => {
                                 <Link className="nav-link disabled" aria-disabled="true">Disabled</Link>
                             </li> */}
 
-                            <li className="nav-item dropdown ms-3">
+                            {/* <li className="nav-item dropdown ms-3">
                                 <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                   <VscColorMode/>  Mode
                                 </Link>
@@ -50,7 +51,7 @@ const Navbar = () => {
                                     <li><hr className="dropdown-divider" /></li>
                                     <li><Link className="dropdown-item" to="/">Something else here</Link></li>
                                 </ul>
-                            </li>
+                            </li> */}
 
                         </ul>
                         <form className="d-flex" role="search">

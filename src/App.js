@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Posts from './components/viewPosts/Posts';
 import { useState } from 'react';
 import ViewFullPost from './components/viewPosts/ViewFullPost';
+import AdminProfile from './components/Profile/AdminProfile';
 
 function App() {
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -39,6 +40,7 @@ function App() {
 
 
     <Route exact path='/full-story/:postId' element={<ViewFullPost/>}></Route>
+    <Route exact path='/admin-profile' element={<AdminProfile/>}></Route>
     </Routes>
 
    </BrowserRouter>
