@@ -38,23 +38,6 @@ const Navbar = () => {
                                 <Link className="nav-link" to="/life-experience">Life-experience</Link>
                             </li>
 
-
-                            {/* <li className="nav-item">
-                                <Link className="nav-link disabled" aria-disabled="true">Disabled</Link>
-                            </li> */}
-
-                            {/* <li className="nav-item dropdown ms-3">
-                                <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <VscColorMode/>  Mode
-                                </Link>
-                                <ul className="dropdown-menu">
-                                    <li><Link className="dropdown-item" to="/">Action</Link></li>
-                                    <li><Link className="dropdown-item" to="/">Another action</Link></li>
-                                    <li><hr className="dropdown-divider" /></li>
-                                    <li><Link className="dropdown-item" to="/">Something else here</Link></li>
-                                </ul>
-                            </li> */}
-
                         </ul>
 
                         {localStorage.getItem('token') ? <form className="d-flex" role="search">
@@ -66,7 +49,7 @@ const Navbar = () => {
                         <form className="d-flex" role="search">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                             <button className="btn btn-outline-light" type="submit">Search</button>
-                            <Link className="btn btn-outline-light mx-1" to="/signup" role="button">Login/Signup</Link>
+                            <Link className="btn btn-outline-light mx-1" to="/login" role="button">Login/Signup</Link>
                         </form>
                         }
 

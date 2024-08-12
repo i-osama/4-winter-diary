@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = (props) => {
 
@@ -38,7 +38,7 @@ const Login = (props) => {
   }
 
   return (
-    <div>
+    <div className='container mx-2 my-4'>
       <form  onSubmit={handleSubmit}>
   <div className="mb-3">
     <label htmlFor="email" className="form-label">Email address</label>
@@ -49,8 +49,14 @@ const Login = (props) => {
     <label htmlFor="password" className="form-label">Password</label>
     <input type="password" className="form-control" value={credentials.password} onChange={onChange} id="password" name='password'/>
   </div>
-  
-  <button type="submit" className="btn btn-primary">Submit</button>
+  <div className='d-flex justify-content-center flex-column align-items-center'>
+    <div>
+
+  <button type="submit" className="btn  btn-outline-dark">Submit</button>
+    </div>
+
+  <div>Already have a account? <u><Link to='/signup'>Signup</Link></u></div>
+  </div>
 </form>
     </div>
   )

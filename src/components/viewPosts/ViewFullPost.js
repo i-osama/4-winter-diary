@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { FcLike } from "react-icons/fc";
 import CommentSection from '../Comments/CommentSection';
 import { FaRegBookmark } from "react-icons/fa6";
-
 import { FcBookmark } from "react-icons/fc";
 import { FaShareAlt } from "react-icons/fa";
 
@@ -54,7 +53,7 @@ const ViewFullPost = () => {
           <div className="d-flex mb-3">
             <div>
               <p className="card-title">{author ? (<> <b>Author:</b>  {author} </>) : (<><b>Author:</b> Unknown</>)}</p>
-              <p className="card-subtitle mb-2 text-muted">Publishing date: {date}</p>
+              <p className="card-subtitle mb-2 text-muted"><b>Publishing date:</b> {date}</p>
             </div>
 
           </div>

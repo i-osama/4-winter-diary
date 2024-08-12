@@ -9,6 +9,8 @@ import { useState } from 'react';
 import ViewFullPost from './components/viewPosts/ViewFullPost';
 import ProfilePage from './components/Profile/ProfilePage';
 import TextEditor from './components/Write-post/TextEditor';
+import Login from './components/Login-Signup/Login';
+import Signup from './components/Login-Signup/Signup';
 
 function App() {
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -43,6 +45,8 @@ function App() {
     <Route exact path='/full-story/:postId' element={<ViewFullPost/>}></Route>
     <Route exact path='/admin-profile' element={<ProfilePage/>}></Route>
     <Route exact path='/text-editor' element={<TextEditor/>}></Route>
+    <Route exact path='/login' element={<Login/>}></Route>
+    <Route exact path='/signup' element={<Signup/>}></Route>
     </Routes>
 
    </BrowserRouter>
