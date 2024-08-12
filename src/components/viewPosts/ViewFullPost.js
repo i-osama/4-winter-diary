@@ -2,9 +2,18 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FcLike } from "react-icons/fc";
 import CommentSection from '../Comments/CommentSection';
+import { FaRegBookmark } from "react-icons/fa6";
+
+import { FcBookmark } from "react-icons/fc";
 
 const ViewFullPost = () => {
   const { postId } = useParams();
+
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const handleBookmarkClick = () => {
+    setIsBookmarked(!isBookmarked);
+  };
 
   // ----------------------- Temp Variables Start --------------------------------
   const author = "";
@@ -15,7 +24,7 @@ const ViewFullPost = () => {
   // ----------------------- Temp Variables End --------------------------------
 
   const [likes, setLikes] = useState(0);
- 
+
   const handleLike = () => {
     setLikes(likes + 1);
   };
@@ -27,8 +36,13 @@ const ViewFullPost = () => {
     <div className="container mt-5">
       <div className="card">
         <div className="card-body">
-          <p className="card-title">{author ? (<> <b>Author:</b>  {author} </>): (<><b>Author:</b> Unknown</>)}</p>
-          <p className="card-subtitle mb-2 text-muted">{date}</p>
+          <div className="d-flex mb-3">
+            <div>
+              <p className="card-title">{author ? (<> <b>Author:</b>  {author} </>) : (<><b>Author:</b> Unknown</>)}</p>
+              <p className="card-subtitle mb-2 text-muted">Publishing date: {date}</p>
+            </div>
+
+          </div>
           {/* <h3 className="card-title">{title}</h3> */}
 
 
@@ -45,11 +59,14 @@ const ViewFullPost = () => {
             <button type="button" className="btn  btn-outline-dark admin-c-btn-hover " onClick={handleLike}>
               <FcLike style={{ fontSize: '30px' }} /> {likes}
             </button>
+            <button className="btn btn-outline-dark mx-3" onClick={handleBookmarkClick}>
+              {isBookmarked ? <FcBookmark style={{ fontSize: '25px' }}/> : <FaRegBookmark style={{ fontSize: '25px' }}/>}
+            </button>
           </div>
         </div>
       </div>
 
-        <CommentSection/>
+      <CommentSection />
 
     </div>
   );

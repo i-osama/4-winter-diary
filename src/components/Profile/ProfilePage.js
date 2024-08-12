@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { SlUserFollowing } from "react-icons/sl";
 import { GiFountainPen } from "react-icons/gi";
 import { Link } from 'react-router-dom';
+import { FcLike } from "react-icons/fc";
+import { FcBookmark } from "react-icons/fc";
 
 const ProfilePage = ({ isOwner }) => {
   const [view, setView] = useState('profile');
@@ -47,13 +49,33 @@ const ProfilePage = ({ isOwner }) => {
           </div>
           {!isOwner && (
             <div className="mt-4">
-              {tempUserId!==tempVisitorId?<button className="btn btn-outline-dark mr-2"><SlUserFollowing /> Follow</button>:""}
-              {tempUserId===tempVisitorId? <Link to='/text-editor' className="btn btn-outline-dark mr-2"><GiFountainPen/> Write your thoughts</Link>:""}
+              {/* adding follow button  */}
+             {tempUserId!==tempVisitorId?<button className="btn btn-outline-dark mr-2"><SlUserFollowing /> Follow</button>:""}
+
+              {tempUserId===tempVisitorId? <>
+              <div className="d-flex justify-content-center">
+                  <div className='text-decoration-underline mx-5 mb-3' style={{ fontSize: '18px' }}>
+                    Likes <FcLike/>
+                  </div>
+                  <div className='text-decoration-underline mx-5 mb-3' style={{ fontSize: '18px' }}>
+                    Bookmarks <FcBookmark/>
+                  </div>
+              </div>
+              </>
+              :""}
              
             </div>
           )}
         </div>
       </div>
+
+      {!isOwner && (
+            <div className="mt-4 d-flex justify-content-center">
+                 {tempUserId===tempVisitorId? 
+              <Link to='/text-editor' className="btn btn-outline-dark mr-2"><GiFountainPen/> Write your thoughts</Link>:""}
+
+            </div>
+            )}
 
       <div className="mt-5">
         {view === 'posts' && <div>Show total posts published by the profile owner here.</div>}
