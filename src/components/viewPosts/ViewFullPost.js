@@ -5,6 +5,7 @@ import CommentSection from '../Comments/CommentSection';
 import { FaRegBookmark } from "react-icons/fa6";
 
 import { FcBookmark } from "react-icons/fc";
+import { FaShareAlt } from "react-icons/fa";
 
 const ViewFullPost = () => {
   const { postId } = useParams();
@@ -27,6 +28,20 @@ const ViewFullPost = () => {
 
   const handleLike = () => {
     setLikes(likes + 1);
+  };
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Check out this post!',
+        text: 'Here is an interesting post I found.',
+        url: window.location.href,
+      })
+      .then(() => console.log('Successful share'))
+      .catch((error) => console.log('Error sharing', error));
+    } else {
+      alert('Share feature is not supported in your browser.');
+    }
   };
 
   return (
@@ -61,6 +76,9 @@ const ViewFullPost = () => {
             </button>
             <button className="btn btn-outline-dark mx-3" onClick={handleBookmarkClick}>
               {isBookmarked ? <FcBookmark style={{ fontSize: '25px' }}/> : <FaRegBookmark style={{ fontSize: '25px' }}/>}
+            </button>
+            <button className="btn btn-outline-dark" onClick={handleShare}>
+              <FaShareAlt style={{ fontSize: '25px' }} />
             </button>
           </div>
         </div>

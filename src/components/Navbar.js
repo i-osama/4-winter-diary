@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { VscColorMode } from "react-icons/vsc";
 import { BsPersonCircle } from "react-icons/bs";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const Navbar = () => {
     return (
@@ -55,12 +57,16 @@ const Navbar = () => {
 
                         </ul>
 
-                        {!localStorage.getItem('token') ? <form className="d-flex" role="search">
-                            <Link className="btn btn-outline-light mx-1" to="/login" role="button">Login</Link>
-                            <Link className="btn btn-outline-light mx-1" to="/signup" role="button">Signup</Link>
-                        </form> : <form className="d-flex" role="search">
+                        {localStorage.getItem('token') ? <form className="d-flex" role="search">
+                            <form className="d-flex" role="search">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                             <button className="btn btn-outline-light" type="submit">Search</button>
+                        </form>
+                        </form> : 
+                        <form className="d-flex" role="search">
+                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                            <button className="btn btn-outline-light" type="submit">Search</button>
+                            <Link className="btn btn-outline-light mx-1" to="/signup" role="button">Login/Signup</Link>
                         </form>
                         }
 
