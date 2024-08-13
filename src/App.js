@@ -40,6 +40,7 @@ function App() {
     <Route exact path='/travel' element={<Posts category = {"Travel"}/>}></Route>
     <Route exact path='/articles' element={<Posts category = {"Articles"}/>}></Route>
     <Route exact path='/life-experience' element={<Posts category = {"Life-experience"}/>}></Route>
+    <Route exact path='/love-story' element={<Posts category = {"Love Story"}/>}></Route>
 
 
     <Route exact path='/full-story/:postId' element={<ViewFullPost/>}></Route>

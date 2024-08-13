@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { VscColorMode } from "react-icons/vsc";
 import { BsPersonCircle } from "react-icons/bs";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { RiNotification2Line } from "react-icons/ri";
+import { RiNotification2Fill } from "react-icons/ri";
 
 const Navbar = () => {
+    const [isNotification, setIsNotification] = useState(false);
+    const [notificationCount, setNotificationCount] = useState(0);
+
+    const handleNotificationClick = () => {
+        setIsNotification(!isNotification);
+    };
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -37,21 +46,31 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/life-experience">Life-experience</Link>
                             </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/love-story">Love Story</Link>
+                            </li>
 
                         </ul>
 
-                        {localStorage.getItem('token') ? <form className="d-flex" role="search">
+                        {!localStorage.getItem('token') ? (
                             <form className="d-flex" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-outline-light" type="submit">Search</button>
-                        </form>
-                        </form> : 
-                        <form className="d-flex" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-outline-light" type="submit">Search</button>
-                            <Link className="btn btn-outline-light mx-1" to="/login" role="button">Login/Signup</Link>
-                        </form>
-                        }
+                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                                <button className="btn btn-outline-light" type="submit">Search</button>
+                                <div className='btn btn-outline-light mx-1 position-relative' id='allNoti' onClick={handleNotificationClick}>
+                                    {isNotification ? <RiNotification2Fill style={{ fontSize: '18px' }} /> : <RiNotification2Line style={{ fontSize: '18px' }} />}
+                                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        {notificationCount}
+                                    </span>
+                                </div>
+                            </form>
+                        ) : (
+                            <form className="d-flex" role="search">
+                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                                <button className="btn btn-outline-light" type="submit">Search</button>
+                                <Link className="btn btn-outline-light mx-1" to="/login" role="button">Login/Signup</Link>
+                            </form>
+                        )}
+
 
 
                     </div>

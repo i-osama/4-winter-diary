@@ -11,6 +11,7 @@ const TextEditor = () => {
   const [charCount, setCharCount] = useState(0);
   const [images, setImages] = useState([]);
   const [fontSize, setFontSize] = useState(14);
+  const [categoryName, setCategoryName] = useState('---Set Category---');
   
   const quillRef = React.useRef(null);
 
@@ -39,7 +40,11 @@ const TextEditor = () => {
     if (wordCount < 20) {
       alert('Minimum word limit is 20.');
     } else {
-      alert('Article published!');
+      if (categoryName==='---Set Category---') {
+        alert('Please, select a "Category" to publish the article!');
+      }else{
+        alert('Article published!');
+      }
     }
   };
 
@@ -117,6 +122,24 @@ const TextEditor = () => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
+
+      {/* Dropdown  */}
+      <div class="btn-group">
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    {categoryName}
+  </button>
+  <ul class="dropdown-menu">
+    <li><p className="dropdown-item" style={{cursor:'pointer'}} value={"sci-fi"} onClick={(e)=>{setCategoryName("Sci-fi")}}>Sci-fi</p></li>
+    <li><p className="dropdown-item" style={{cursor:'pointer'}} value={"horror"} onClick={(e)=>{setCategoryName("Horror")}}>Horror</p></li>
+    <li><p className="dropdown-item" style={{cursor:'pointer'}} value={'thriller'} onClick={(e)=>{setCategoryName('Thriller')}}>Thriller</p></li>
+    <li><hr class="dropdown-divider"/></li>
+    <li><p className="dropdown-item" style={{cursor:'pointer'}} value={'travel'} onClick={(e)=>{setCategoryName('Travel')}}>Travel</p></li>
+    <li><hr class="dropdown-divider"/></li>
+    <li><p className="dropdown-item" style={{cursor:'pointer'}} value={'articles'} onClick={(e)=>{setCategoryName('Articles')}}>Articles</p></li>
+    <li><p className="dropdown-item" style={{cursor:'pointer'}} value={'life-experience'} onClick={(e)=>{setCategoryName('Life-experience')}}>Life-experience</p></li>
+    <li><p className="dropdown-item" style={{cursor:'pointer'}} value={'love-story'} onClick={(e)=>{setCategoryName('Love Story')}}>Love Story</p></li>
+  </ul>
+</div>
 
       <div className="mt-3">
         {images.map((image, index) => (
