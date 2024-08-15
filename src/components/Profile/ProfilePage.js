@@ -5,6 +5,8 @@ import { GiFountainPen } from "react-icons/gi";
 import { Link } from 'react-router-dom';
 import { FcLike } from "react-icons/fc";
 import { FcBookmark } from "react-icons/fc";
+import { FaUserEdit } from "react-icons/fa";
+import { IoMdLogOut } from "react-icons/io";
 
 const ProfilePage = ({ isOwner }) => {
   const [view, setView] = useState('profile');
@@ -24,6 +26,11 @@ const ProfilePage = ({ isOwner }) => {
     <div className="container mt-5">
       <div className="card text-center">
         <div className="card-body">
+        <div class="float-sm-end">
+          <Link className='navbar-brand mx-1' to='/edit-profile'> <FaUserEdit style={{fontSize: '25px'}}/></Link>
+          
+           <Link className='navbar-brand mx-1' to='/logout'> <IoMdLogOut style={{fontSize: '25px'}}/></Link>
+          </div>
           <img
             src= {tempProfileImg}
             className="rounded-circle mb-3"
