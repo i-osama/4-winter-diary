@@ -11,6 +11,7 @@ import ProfilePage from './components/Profile/ProfilePage';
 import TextEditor from './components/Write-post/TextEditor';
 import Login from './components/Login-Signup/Login';
 import Signup from './components/Login-Signup/Signup';
+import ProfileEditor from './components/Profile/ProfileEditor';
 
 function App() {
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -48,6 +49,7 @@ function App() {
     <Route exact path='/text-editor' element={<TextEditor/>}></Route>
     <Route exact path='/login' element={<Login/>}></Route>
     <Route exact path='/signup' element={<Signup/>}></Route>
+    <Route exact path='/edit-profile' element={<ProfileEditor/>}></Route>
     </Routes>
 
    </BrowserRouter>
