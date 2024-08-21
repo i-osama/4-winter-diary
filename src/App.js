@@ -1,7 +1,8 @@
 
 import './App.css';
 import Navbar from './components/Navbar';
-
+import {store} from './components/Redux/store'
+import { Provider } from 'react-redux';
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";  
 import Posts from './components/viewPosts/Posts';
@@ -12,6 +13,7 @@ import TextEditor from './components/Write-post/TextEditor';
 import Login from './components/Login-Signup/Login';
 import Signup from './components/Login-Signup/Signup';
 import ProfileEditor from './components/Profile/ProfileEditor';
+
 
 function App() {
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -26,6 +28,7 @@ function App() {
   // }
   return (
    <>
+   <Provider store={store}>
        <BrowserRouter>
 
    <Navbar/>
@@ -53,6 +56,7 @@ function App() {
     </Routes>
 
    </BrowserRouter>
+   </Provider>
    
    </>
   );

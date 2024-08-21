@@ -7,6 +7,7 @@ import { FcLike } from "react-icons/fc";
 import { FcBookmark } from "react-icons/fc";
 import { FaUserEdit } from "react-icons/fa";
 import { IoMdLogOut } from "react-icons/io";
+import Posts from '../viewPosts/Posts';
 
 const ProfilePage = ({ isOwner }) => {
   const [view, setView] = useState('profile');
@@ -85,7 +86,7 @@ const ProfilePage = ({ isOwner }) => {
             )}
 
       <div className="mt-5">
-        {view === 'posts' && <div>Show total posts published by the profile owner here.</div>}
+        {view === 'posts' && <div><Posts currentUserId= {tempUserId}/></div>}
         {view === 'followers' && <div>Show followers profiles here.</div>}
         {view === 'following' && <div>Show following profiles here.</div>}
       </div>

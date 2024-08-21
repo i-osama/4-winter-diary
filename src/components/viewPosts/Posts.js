@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import Spinner from '../Spinner/Spinner';
@@ -6,6 +6,11 @@ import PostItem from './PostItem';
 
 const Posts = (props) => {
 
+    const [articles, setArticles] = useState([]);
+    const [hasMore, setHasMore] = useState(true);
+    const [page, setPage] = useState(1);
+
+    // ------------------------------------
     const modelData = 
     {
         "status": "ok",
@@ -14,7 +19,7 @@ const Posts = (props) => {
             {
                 "_id": "1245695256",
                 "author": "CNBC",
-                "authorId":"41546454",
+                "authorId":"415464542",
                 "title": "Stock futures fall after Wednesday's afternoon market slide: Live updates - CNBC",
                 "mainPost": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad optio quo iure tempora odio, unde ipsa blanditiis fuga mollitia autem!. Ad optio quo iure tempora odio, unde ipsa blanditiis fuga mollitia autem!",
                 "imageUrl": "https://news.google.com/rss/articles/CBMid0FVX3lxTE0weWFPSVZFYnZXbnllZTJ3bkNHZkpEZWFwdnRZdDg1by1qc05hWnFodkNhQkRUd2dhdnFndVQyZG5uZkx1OVRXVUlQbGJwSlZSTHJjM0cwb205d3lBZW9DV0dBbjJ5dmJFV0tXUllKa3RFNmJ5U1pB0gF8QVVfeXFMTXRnbFhISGtaSDhsLV9scXE2RHVoS0JFOUd6ZXBCSDBPVFNFdlVqZUxHdDIyM0VZMUU0RWQ1dXZEQ2J0NzAxMUJxNk5MU1J0V2hyOEY2WUd4RDdmVWpOZWVXT05OMUQ0dUdqb0FXT3pmX3RONUdxcDRIRldHNg?oc=5",
@@ -44,7 +49,7 @@ const Posts = (props) => {
             {
                 "_id": "1245695259",
                 "author": "CNBC",
-                "authorId":"41546454",
+                "authorId":"101010",
                 "title": "Stock futures fall after Wednesday's afternoon market slide: Live updates - CNBC",
                 "mainPost": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad optio quo iure tempora odio, unde ipsa blanditiis fuga mollitia autem!. Ad optio quo iure tempora odio, unde ipsa blanditiis fuga mollitia autem!",
                 "imageUrl": "https://news.google.com/rss/articles/CBMid0FVX3lxTE0weWFPSVZFYnZXbnllZTJ3bkNHZkpEZWFwdnRZdDg1by1qc05hWnFodkNhQkRUd2dhdnFndVQyZG5uZkx1OVRXVUlQbGJwSlZSTHJjM0cwb205d3lBZW9DV0dBbjJ5dmJFV0tXUllKa3RFNmJ5U1pB0gF8QVVfeXFMTXRnbFhISGtaSDhsLV9scXE2RHVoS0JFOUd6ZXBCSDBPVFNFdlVqZUxHdDIyM0VZMUU0RWQ1dXZEQ2J0NzAxMUJxNk5MU1J0V2hyOEY2WUd4RDdmVWpOZWVXT05OMUQ0dUdqb0FXT3pmX3RONUdxcDRIRldHNg?oc=5",
@@ -54,7 +59,7 @@ const Posts = (props) => {
             {
                 "_id": "1245695251",
                 "author": "CNBC",
-                "authorId":"41546454",
+                "authorId":"415464542",
                 "title": "Stock futures fall after Wednesday's afternoon market slide: Live updates - CNBC",
                 "mainPost": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad optio quo iure tempora odio, unde ipsa blanditiis fuga mollitia autem!. Ad optio quo iure tempora odio, unde ipsa blanditiis fuga mollitia autem!",
                 "imageUrl": "https://news.google.com/rss/articles/CBMid0FVX3lxTE0weWFPSVZFYnZXbnllZTJ3bkNHZkpEZWFwdnRZdDg1by1qc05hWnFodkNhQkRUd2dhdnFndVQyZG5uZkx1OVRXVUlQbGJwSlZSTHJjM0cwb205d3lBZW9DV0dBbjJ5dmJFV0tXUllKa3RFNmJ5U1pB0gF8QVVfeXFMTXRnbFhISGtaSDhsLV9scXE2RHVoS0JFOUd6ZXBCSDBPVFNFdlVqZUxHdDIyM0VZMUU0RWQ1dXZEQ2J0NzAxMUJxNk5MU1J0V2hyOEY2WUd4RDdmVWpOZWVXT05OMUQ0dUdqb0FXT3pmX3RONUdxcDRIRldHNg?oc=5",
@@ -64,7 +69,7 @@ const Posts = (props) => {
             {
                 "_id": "1245695233",
                 "author": "CNBC",
-                "authorId":"41546454",
+                "authorId":"101010",
                 "title": "Stock futures fall after Wednesday's afternoon market slide: Live updates - CNBC",
                 "mainPost": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad optio quo iure tempora odio, unde ipsa blanditiis fuga mollitia autem!. Ad optio quo iure tempora odio, unde ipsa blanditiis fuga mollitia autem!",
                 "imageUrl": "https://news.google.com/rss/articles/CBMid0FVX3lxTE0weWFPSVZFYnZXbnllZTJ3bkNHZkpEZWFwdnRZdDg1by1qc05hWnFodkNhQkRUd2dhdnFndVQyZG5uZkx1OVRXVUlQbGJwSlZSTHJjM0cwb205d3lBZW9DV0dBbjJ5dmJFV0tXUllKa3RFNmJ5U1pB0gF8QVVfeXFMTXRnbFhISGtaSDhsLV9scXE2RHVoS0JFOUd6ZXBCSDBPVFNFdlVqZUxHdDIyM0VZMUU0RWQ1dXZEQ2J0NzAxMUJxNk5MU1J0V2hyOEY2WUd4RDdmVWpOZWVXT05OMUQ0dUdqb0FXT3pmX3RONUdxcDRIRldHNg?oc=5",
@@ -84,7 +89,7 @@ const Posts = (props) => {
             {
                 "_id": "1245695225",
                 "author": "CNBC",
-                "authorId":"41546454",
+                "authorId":"101010",
                 "title": "Stock futures fall after Wednesday's afternoon market slide: Live updates - CNBC",
                 "mainPost": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad optio quo iure tempora odio, unde ipsa blanditiis fuga mollitia autem!. Ad optio quo iure tempora odio, unde ipsa blanditiis fuga mollitia autem!",
                 "imageUrl": "https://news.google.com/rss/articles/CBMid0FVX3lxTE0weWFPSVZFYnZXbnllZTJ3bkNHZkpEZWFwdnRZdDg1by1qc05hWnFodkNhQkRUd2dhdnFndVQyZG5uZkx1OVRXVUlQbGJwSlZSTHJjM0cwb205d3lBZW9DV0dBbjJ5dmJFV0tXUllKa3RFNmJ5U1pB0gF8QVVfeXFMTXRnbFhISGtaSDhsLV9scXE2RHVoS0JFOUd6ZXBCSDBPVFNFdlVqZUxHdDIyM0VZMUU0RWQ1dXZEQ2J0NzAxMUJxNk5MU1J0V2hyOEY2WUd4RDdmVWpOZWVXT05OMUQ0dUdqb0FXT3pmX3RONUdxcDRIRldHNg?oc=5",
@@ -94,7 +99,7 @@ const Posts = (props) => {
             {
                 "_id": "1245695226",
                 "author": "CNBC",
-                "authorId":"41546454",
+                "authorId":"101010",
                 "title": "Stock futures fall after Wednesday's afternoon market slide: Live updates - CNBC",
                 "mainPost": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad optio quo iure tempora odio, unde ipsa blanditiis fuga mollitia autem!. Ad optio quo iure tempora odio, unde ipsa blanditiis fuga mollitia autem!",
                 "imageUrl": "https://news.google.com/rss/articles/CBMid0FVX3lxTE0weWFPSVZFYnZXbnllZTJ3bkNHZkpEZWFwdnRZdDg1by1qc05hWnFodkNhQkRUd2dhdnFndVQyZG5uZkx1OVRXVUlQbGJwSlZSTHJjM0cwb205d3lBZW9DV0dBbjJ5dmJFV0tXUllKa3RFNmJ5U1pB0gF8QVVfeXFMTXRnbFhISGtaSDhsLV9scXE2RHVoS0JFOUd6ZXBCSDBPVFNFdlVqZUxHdDIyM0VZMUU0RWQ1dXZEQ2J0NzAxMUJxNk5MU1J0V2hyOEY2WUd4RDdmVWpOZWVXT05OMUQ0dUdqb0FXT3pmX3RONUdxcDRIRldHNg?oc=5",
@@ -154,13 +159,28 @@ const Posts = (props) => {
     
         ]
     }
-
+    // ------------------------------------
 
 
     
   const fetchMoreData = async () => {
+    // let url = `https://api.example.com/posts?page=${page}`;
+    // if (props.userId) {
+    //   url = `https://api.example.com/posts?userId=${props.userId}&page=${page}`;
+    // }
+
+    // const response = await fetch(url);
+    // const data = await response.json();
+
+    // setArticles(articles.concat(data.articles));
+    // setHasMore(data.articles.length > 0);
+    // setPage(page + 1);
 
   };
+
+//   useEffect(() => {
+//     fetchMoreData();
+//   }, []);
 
 
   return (
@@ -181,7 +201,7 @@ const Posts = (props) => {
 
         return <div className="col-md-4" key={element.url}>
           {/* <PostItem title={element.title} description={element.mainPost} imgUrl={element.imageUrl} newsUrl={element.url} date={element.publishedAt} author={element.author} */}
-          <PostItem postId= {element._id} title={element.title} description={element.mainPost} imgUrl={element.imageUrl} date={element.publishedAt} author={element.author} />
+          <PostItem postId= {element._id} title={element.title} description={element.mainPost} imgUrl={element.imageUrl} date={element.publishedAt} author={element.author} authorId={element.authorId} currentUserId = {props.currentUserId} />
         </div>
 
 

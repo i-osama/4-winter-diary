@@ -70,9 +70,6 @@ const Navbar = () => {
                                 <Link className="btn btn-outline-light mx-1" to="/login" role="button">Login/Signup</Link>
                             </form>
                         )}
-
-
-
                     </div>
                 </div>
             </nav>
