@@ -57,6 +57,23 @@ const Signup = (props) => {
           <label htmlFor="email" className="form-label">Email address</label>
           <input type="email" className="form-control" id="email" name='email' onChange={onChange} aria-describedby="emailHelp" />
         </div>
+
+{/* Gender Radio  */}
+        <label htmlFor="name" className="form-label mx-3  ">Gender: </label>
+
+        <div className="form-check form-check-inline">
+  <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"/>
+  <label className="form-check-label"htmlFor="inlineRadio1">Male</label>
+</div>
+<div className="form-check form-check-inline">
+  <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"/>
+  <label className="form-check-label"htmlFor="inlineRadio2">Female</label>
+</div>
+<div className="form-check form-check-inline">
+  <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"/>
+  <label className="form-check-label"htmlFor="inlineRadio3">Others</label>
+</div>
+
         <div className="mb-3">
           <label htmlFor="password" className="form-label">Password</label>
           <input type="password" className="form-control" id="password" name='password' onChange={onChange} minLength={5} required />

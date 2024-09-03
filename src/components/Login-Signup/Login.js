@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 
-import { GoogleLogin } from '@react-oauth/google';
-import { jwtDecode } from 'jwt-decode';
+// import { GoogleLogin } from '@react-oauth/google';
+// import { jwtDecode } from 'jwt-decode';
 
 
 const Login = (props) => {
@@ -57,7 +57,7 @@ const Login = (props) => {
         <div className='d-flex justify-content-center flex-column align-items-center'>
 
            {/* login with google auth  */}
-        <div className="btn my-3 mx-5">
+        {/* <div className="btn my-3 mx-5">
         <GoogleLogin
   onSuccess={(response) => {
     const decoded_data = jwtDecode(response.credential)
@@ -67,7 +67,7 @@ const Login = (props) => {
     console.log('Login Failed');
   }}
 />
-        </div>
+        </div> */}
 
           <div>
 

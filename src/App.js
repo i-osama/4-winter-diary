@@ -21,7 +21,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 function App() {
   const apiKey = process.env.REACT_APP_API_KEY;
   // const googleCilentId = process.env.REACT_APP_GOOGLE_CLIENT_ID; 
-  const googleCilentId = "634478647192-i1ehpf33hpjr26oer4hnm2istlacdi6f.apps.googleusercontent.com" 
+  // const googleCilentId = "634478647192-i1ehpf33hpjr26oer4hnm2istlacdi6f.apps.googleusercontent.com" 
   
   // state = {
   //   progress: 0
@@ -33,7 +33,7 @@ function App() {
   // }
   return (
    <>
-   <GoogleOAuthProvider clientId={googleCilentId}>
+   {/* <GoogleOAuthProvider clientId={googleCilentId}> */}
    <Provider store={store}>
        <BrowserRouter>
 
@@ -63,7 +63,7 @@ function App() {
 
    </BrowserRouter>
    </Provider>
-   </GoogleOAuthProvider>
+   {/* </GoogleOAuthProvider> */}
    
    </>
   );
